@@ -87,23 +87,23 @@
     `;
     document.head.appendChild(style);
 
-    // ================== DATA ==================
-    const names = [
-        "Nusrat Jahan",
-        "Siam Ahmed",
-        "Tanvir Hasan",
-        "Sadia Islam",
-        "Mim Akter",
-        "Arif Hossain",
-        "Rahim Khan",
-        "Jannat Akter"
-    ];
+// ================== DATA ==================
+const names = [
+    "নুসরাত জাহান",
+    "সিয়াম আহমেদ",
+    "তানভীর হাসান",
+    "সাদিয়া ইসলাম",
+    "মিম আক্তার",
+    "আরিফ হোসেন",
+    "রহিম খান",
+    "জান্নাত আক্তার"
+];
 
     const pics = [
-        "https://picsum.photos/id/64/200/200",
-        "https://picsum.photos/id/65/200/200",
-        "https://picsum.photos/id/66/200/200",
-        "https://picsum.photos/id/67/200/200"
+        "https://i.pinimg.com/736x/cc/be/64/ccbe6479e3962436ad5094a6558a0d24.jpg",
+        "https://i.pinimg.com/736x/fd/39/27/fd3927291e77f4bbf20a9b3bac4bd604.jpg",
+        "https://i.pinimg.com/736x/fd/39/27/fd3927291e77f4bbf20a9b3bac4bd604.jpg",
+        "https://i.pinimg.com/1200x/d2/48/71/d24871f2751d2866232dea90523772a6.jpg"
     ];
 
     function randomCaller(){
