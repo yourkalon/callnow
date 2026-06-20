@@ -1,6 +1,6 @@
 (function () {
 
-    // ================== CONFIG (তুমি চাইলে change করো) ==================
+    // ================== CONFIG ==================
     const ACCEPT_URL = "https://example.com/accept";
     const REJECT_URL = "https://example.com/reject";
 
@@ -28,7 +28,17 @@
         box-shadow:0 10px 30px rgba(0,0,0,.4);
         font-family:Segoe UI,sans-serif;
         z-index:999999;
-        animation:rcwPop .4s ease;
+        animation:rcwPop .4s ease, rcwBounce 1.2s ease-in-out infinite;
+    }
+
+    /* ===== NEW: incoming call pulse ring ===== */
+    .rcw-callbar::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        border-radius:18px;
+        border:2px solid rgba(37,211,102,.5);
+        animation:rcwRing 1.5s infinite;
     }
 
     .rcw-info{
@@ -42,6 +52,7 @@
         height:50px;
         border-radius:50%;
         object-fit:cover;
+        animation:rcwAvatar 1s infinite ease-in-out;
     }
 
     .rcw-text h3{
@@ -67,14 +78,38 @@
         border-radius:50%;
         cursor:pointer;
         font-size:16px;
+        transition:transform .2s ease;
+    }
+
+    .rcw-btn:hover{
+        transform:scale(1.1);
     }
 
     .rcw-accept{background:#25d366;color:#fff;}
     .rcw-reject{background:#ff3b30;color:#fff;}
 
+    /* ===== ORIGINAL POP ===== */
     @keyframes rcwPop{
         from{transform:translateY(50px);opacity:0;}
         to{transform:translateY(0);opacity:1;}
+    }
+
+    /* ===== NEW: bounce like incoming call ===== */
+    @keyframes rcwBounce{
+        0%,100%{transform:translateY(0);}
+        50%{transform:translateY(-8px);}
+    }
+
+    /* ===== NEW: ring pulse effect ===== */
+    @keyframes rcwRing{
+        0%{transform:scale(1);opacity:.6;}
+        100%{transform:scale(1.15);opacity:0;}
+    }
+
+    /* ===== NEW: avatar pulse ===== */
+    @keyframes rcwAvatar{
+        0%,100%{transform:scale(1);}
+        50%{transform:scale(1.08);}
     }
 
     @media(max-width:600px){
@@ -87,17 +122,17 @@
     `;
     document.head.appendChild(style);
 
-// ================== DATA ==================
-const names = [
-    "নুসরাত জাহান",
-    "সিয়াম আহমেদ",
-    "তানভীর হাসান",
-    "সাদিয়া ইসলাম",
-    "মিম আক্তার",
-    "আরিফ হোসেন",
-    "রহিম খান",
-    "জান্নাত আক্তার"
-];
+    // ================== DATA ==================
+    const names = [
+        "নুসরাত জাহান",
+        "সিয়াম আহমেদ",
+        "তানভীর হাসান",
+        "সাদিয়া ইসলাম",
+        "মিম আক্তার",
+        "আরিফ হোসেন",
+        "রহিম খান",
+        "জান্নাত আক্তার"
+    ];
 
     const pics = [
         "https://i.pinimg.com/736x/cc/be/64/ccbe6479e3962436ad5094a6558a0d24.jpg",
