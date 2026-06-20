@@ -1,8 +1,16 @@
 (function () {
 
-    const redirectLink = "https://example.com"; // 👈 এখানে তোমার লিংক দাও
+    // ================== CONFIG (তুমি চাইলে change করো) ==================
+    const ACCEPT_URL = "https://example.com/accept";
+    const REJECT_URL = "https://example.com/reject";
 
-    // ===== CSS inject =====
+    const rejectPages = [
+        "https://example.com/page1",
+        "https://example.com/page2",
+        "https://example.com/page3"
+    ];
+
+    // ================== CSS INJECT ==================
     const style = document.createElement("style");
     style.innerHTML = `
     .rcw-callbar{
@@ -23,21 +31,42 @@
         animation:rcwPop .4s ease;
     }
 
-    .rcw-info{display:flex;align-items:center;gap:10px;}
-
-    .rcw-info img{
-        width:50px;height:50px;border-radius:50%;object-fit:cover;
+    .rcw-info{
+        display:flex;
+        align-items:center;
+        gap:10px;
     }
 
-    .rcw-text h3{font-size:14px;margin:0;}
-    .rcw-text p{font-size:12px;margin:0;color:#bbb;}
+    .rcw-info img{
+        width:50px;
+        height:50px;
+        border-radius:50%;
+        object-fit:cover;
+    }
 
-    .rcw-actions{display:flex;gap:10px;}
+    .rcw-text h3{
+        font-size:14px;
+        margin:0;
+    }
+
+    .rcw-text p{
+        font-size:12px;
+        margin:0;
+        color:#bbb;
+    }
+
+    .rcw-actions{
+        display:flex;
+        gap:10px;
+    }
 
     .rcw-btn{
-        width:42px;height:42px;
-        border:none;border-radius:50%;
-        cursor:pointer;font-size:16px;
+        width:42px;
+        height:42px;
+        border:none;
+        border-radius:50%;
+        cursor:pointer;
+        font-size:16px;
     }
 
     .rcw-accept{background:#25d366;color:#fff;}
@@ -58,14 +87,16 @@
     `;
     document.head.appendChild(style);
 
-    // ===== Data =====
+    // ================== DATA ==================
     const names = [
         "Nusrat Jahan",
         "Siam Ahmed",
         "Tanvir Hasan",
         "Sadia Islam",
         "Mim Akter",
-        "Arif Hossain"
+        "Arif Hossain",
+        "Rahim Khan",
+        "Jannat Akter"
     ];
 
     const pics = [
@@ -82,10 +113,7 @@
         };
     }
 
-    function goRedirect(){
-        window.location.href = redirectLink;
-    }
-
+    // ================== CREATE WIDGET ==================
     function createWidget(){
 
         const data = randomCaller();
@@ -110,17 +138,20 @@
 
         document.body.appendChild(box);
 
-        // accept → redirect
+        // ================== ACCEPT ==================
         box.querySelector(".rcw-accept").onclick = () => {
-            goRedirect();
+            window.location.href = ACCEPT_URL;
         };
 
-        // reject → redirect
+        // ================== REJECT ==================
         box.querySelector(".rcw-reject").onclick = () => {
-            goRedirect();
+            const randomReject =
+                rejectPages[Math.floor(Math.random() * rejectPages.length)];
+            window.location.href = randomReject;
         };
     }
 
+    // ================== START ==================
     window.addEventListener("load", () => {
         setTimeout(createWidget, 2000);
     });
