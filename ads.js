@@ -9,15 +9,16 @@
     var phaseTransitionSeconds = 10;    
     var restHours = 2;                  
 
-    var newDirectLink = 'https://desiviral.net/contenta';
-    var link1 = 'https://desiviral.net/contentb';
-    var link2 = 'https://desiviral.net/contentc';
-    var link4 = 'https://desiviral.net/contentd';
+    var newDirectLink = 'https://adeptdoorstep.com/n0p0pxanfp?key=f504717d727b01ed5ff62f49ad219714';
+    var link1 = 'https://adeptdoorstep.com/r9fc85kpni?key=28e5d5e23f991a59511d86158066c9a0';
+    var link2 = 'https://adeptdoorstep.com/esw47ptigs?key=e50a789fc06e9d76e6b0efba41dc2c0e';
+    var link4 = 'https://adeptdoorstep.com/pynxydkcf?key=9fcaaab1932732baaffa3314295d33af';
 
-    var profitonSmartlink = 'https://desiviral.net/contente'; 
-    var phase2Link3 = 'https://desiviral.net/contentf'; 
-    var newPhase2Link1 = 'https://desiviral.net/contentg';
-    var newPhase2Link2 = 'https://desiviral.net/contenth';
+    var profitonSmartlink = 'https://adeptdoorstep.com/zcvm0rch?key=93b158ea491b4f11e0adbacd15934c67'; 
+    var phase2Link3 = 'https://adeptdoorstep.com/pynxydkcf?key=9fcaaab1932732baaffa3314295d33af'; 
+    var newPhase2Link1 = 'https://adeptdoorstep.com/n0p0pxanfp?key=f504717d727b01ed5ff62f49ad219714';
+    var newPhase2Link2 = 'https://adeptdoorstep.com/r9fc85kpni?key=28e5d5e23f991a59511d86158066c9a0
+';
 
     var isTelegram = (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData.length > 0);
     if (isTelegram) { window.Telegram.WebApp.expand(); }
