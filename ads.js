@@ -1,4 +1,3 @@
-<script>
 (function() {
     var keyPhase = 'dv_phase_v4';       
     var keyStep = 'dv_step_v4';         
@@ -127,13 +126,3 @@
     }, true); 
 
 })();
-</script>
-<script>
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            var adScript = document.createElement('script');
-            adScript.src = "https://hatsharmonyarab.com/dc/83/a8/dc83a865a08e44e8f6e59c3b16710664.js";
-            document.body.appendChild(adScript);
-        }, 3000); 
-    });
-</script>
